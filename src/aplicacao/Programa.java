@@ -31,10 +31,7 @@ public class Programa {
 									Senioridade.valueOf(nivel), //pega enum e recebe dado digitado comparando com variavel constante
 									salarioBase, //pega valor digitado
 									new Departamento(nomeDepartamento)); //instancia o objeto departamento e aplica como argumento o que foi digitado
-		
-		
-		
-		
+
 		sc.close();
 
 	}
