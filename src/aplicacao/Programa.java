@@ -27,12 +27,12 @@ public class Programa {
 		String nomeFuncionario = sc.nextLine();
 		
 		System.out.print("Nível: ");
-		String nivel = sc.next();
+		String nivel = sc.nextLine();
 		
 		System.out.print("Salário base: ");
 		Double salarioBase = sc.nextDouble();
 		
-		Trabalhador trabalhador = new Trabalhador(nomeFuncionario, Senioridade.valueOf(nivel), salarioBase, new Departamento(nomeDepartamento)); //instancia o objeto departamento e aplica como argumento o que foi digitado
+		Trabalhador trabalhador = new Trabalhador(nomeFuncionario, Senioridade.valueOf(nivel), salarioBase, new Departamento(nomeDepartamento));
 		
 		System.out.println("Quantos contratos esse trabalhador tem? ");
 		int n = sc.nextInt();
@@ -40,7 +40,7 @@ public class Programa {
 		for(int i=1; i<=n; i++) {
 			System.out.println("Entre com o contrato #" + i);
 			
-			System.out.print("Data (DD/MM/AAAA");
+			System.out.print("Data (DD/MM/AAAA)");
 			Date dataContrato = sdf.parse(sc.next());
 			
 			System.out.print("Valor por hora: ");
