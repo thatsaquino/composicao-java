@@ -22,20 +22,17 @@ public class Programa {
 		System.out.print("Entre com o nome do Departamento: ");
 		String nomeDepartamento = sc.nextLine();
 		
-		System.out.print("Entre com os dados do trabalhador: ");
+		System.out.println("Entre com os dados do trabalhador: ");
 		System.out.print("Nome: ");
 		String nomeFuncionario = sc.nextLine();
 		
 		System.out.print("Nível: ");
-		String nivel = sc.nextLine();
+		String nivel = sc.next();
 		
 		System.out.print("Salário base: ");
 		Double salarioBase = sc.nextDouble();
 		
-		Trabalhador trabalhador = new Trabalhador(nomeFuncionario, //pega dado digitado
-									Senioridade.valueOf(nivel), //pega enum e recebe dado digitado comparando com variavel constante
-									salarioBase, //pega valor digitado
-									new Departamento(nomeDepartamento)); //instancia o objeto departamento e aplica como argumento o que foi digitado
+		Trabalhador trabalhador = new Trabalhador(nomeFuncionario, Senioridade.valueOf(nivel), salarioBase, new Departamento(nomeDepartamento)); //instancia o objeto departamento e aplica como argumento o que foi digitado
 		
 		System.out.println("Quantos contratos esse trabalhador tem? ");
 		int n = sc.nextInt();
@@ -56,6 +53,19 @@ public class Programa {
 			
 			trabalhador.adicionaContrato(contrato);			
 		}
+		
+		System.out.println();
+		System.out.println("Entre com o mês e ano para calcular o salário (MM/YYYY): ");	
+		String mesAno = sc.next();
+		
+		//recortando manualmente mês e ano:
+		//substring na posição 0 e termina na posição 2(MM/)
+		int mes = Integer.parseInt(mesAno.substring(0, 2));
+		int ano = Integer.parseInt(mesAno.substring(3));
+		
+		System.out.println("Nome: " + trabalhador.getNome());
+		System.out.println("Departamento: " + trabalhador.getDepartamento().getNome());
+		System.out.println("Salário recebido por: " + mesAno + ": " + String.format("%.2f", trabalhador.calculo(ano, mes)));
 		
 		
 		sc.close();
